@@ -1,64 +1,48 @@
-#include<iostream>
-#include<cstring>
+#include <iostream>
+#include <conio.h>
+#include <iomanip>
 using namespace std;
-int countVowels(const char* str) {
 
-    int vowelCount = 0;
-    while (*str) {
-        char c = tolower(*str); 
-        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-            vowelCount++;
+class TollBooth{
+    private:
+    unsigned int car_count;
+    double cash_collected;
+    public:
+    TollBooth (): car_count(0) , cash_collected(0) {}
+
+    void paying_car(){
+        car_count++;
+        cash_collected += 0.5 ;
+    }
+    void no_pay_car(){
+        car_count++;
+    }
+
+    void display(){
+        cout << "Total Cars:" << car_count << endl;
+        cout << "Total Cash Collected:" << cash_collected << endl;
+    }
+};
+
+int main(){
+    TollBooth t1;
+    char ch;
+    cout << "Press\n1.P for Paying car\n2.N for non-paying car\n3.Esc\n";
+    while(true){
+        ch = _getch();
+        if(ch == 27){
+            t1.display();
+            break;
         }
-        str++; 
-    }
-    return vowelCount;
-}
+        else if(ch == 'P' || ch =='p'){
+            t1.paying_car();
+            cout << "Car Paied Successfully" << endl;
+        }
+        else{
+            t1.no_pay_car();
+            cout << "Car not Paied" << endl;
 
-int main() {
-    int n;
-    cout << "Enter the number of strings: ";
-    cin >> n;
-   
-    char** strings = new char*[n];
-    
-    cout << "Enter the " << n << " strings:\n";
-    for (int i = 0; i < n; i++) {
-        strings[i] = new char[100]; 
-        cin>> strings[i]; 
-    }
-
-    cout << "\nStrings in reverse order:\n";
-    for (char** ptr = strings + n - 1; ptr >= strings; ptr--) {
-        cout << *ptr << endl; 
-    }
-    int maxVowels = 0;
-    char* stringWithMaxVowels = nullptr;
-    for (int i = 0; i < n; i++) {
-        int vowelCount = countVowels(strings[i]);
-        if (vowelCount > maxVowels) {
-            maxVowels = vowelCount;
-            stringWithMaxVowels = strings[i];
         }
     }
-
-
-    cout << "\nString with the most vowels: " << stringWithMaxVowels << endl;
-
-
-    float totalLength = 0.0000;
-    for (int i = 0; i < n; i++) {
-        totalLength += strlen(strings[i]);
-    }
-    float averageLength = (totalLength) / n;
-  
-    cout << "\nAverage length of strings: " << averageLength << endl;
-
-
-    for (int i = 0; i < n; i++) {
-        delete[] strings[i]; 
-    }
-    delete[] strings; 
-
     return 0;
-}
 }
