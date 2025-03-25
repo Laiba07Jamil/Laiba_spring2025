@@ -9,7 +9,6 @@ public:
     Product(string id, double p) : productID(id), price(p) {}
     virtual double calculatePrice() = 0; // Pure virtual function
 
-    // Percentage Discount
     virtual void applyDiscount(double discountPercentage) {
         price *= (1 - discountPercentage / 100.0);
     }
@@ -18,7 +17,6 @@ public:
     double getprice() const { return price; }
 };
 
-// Electronics: Applies 15% Tax
 class Electronics : public Product {
 public:
     Electronics(string id, double p) : Product(id, p) {}
@@ -28,7 +26,6 @@ public:
     }
 };
 
-// Clothing: Applies 5% Tax
 class Clothing : public Product {
 public:
     Clothing(string id, double p) : Product(id, p) {}
@@ -38,7 +35,6 @@ public:
     }
 };
 
-// ShoppingCart: Manages Products (No vectors used)
 class ShoppingCart {
 private:
     Product** product;
