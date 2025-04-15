@@ -12,6 +12,8 @@ class Vehicle{
     }
     virtual double getDisplayDetails() = 0;
     virtual void displayDetails() = 0; 
+
+ virtual ~Vehicle () {}
 };
 
 class Car : public Vehicle{
