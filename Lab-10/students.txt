@@ -1,6 +1,0 @@
-1. ID: 854 GPA: 3.4 Name: Ariza
-2. ID: 812 GPA: 3.1 Name: Laiba
-3. ID: 1026 GPA: 3.3 Name: Manahil
-4. ID: 654 GPA: 3.2 Name: Armeen
-5. ID: 846 GPA: 3.5 Name: Hafsa
-1021 2 Fatima
